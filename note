@@ -1,0 +1,25 @@
+git init命令把这个目录变成Git可以管理的仓库：
+
+如果你没有看到.git目录，那是因为这个目录默认是隐藏的，用ls -ah命令就可以看见
+
+
+
+$ git add readme.txt
+$ git commit -m "wrote a readme file"
+
+$ git status命令可以让我们时刻掌握仓库当前的状态
+$ git diff顾名思义就是查看difference
+
+$git log命令显示从最近到最远的提交日志
+输出信息太多可以试试加上--pretty=oneline参数
+3628164...882e1e0的是commit id
+上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。
+$ git reset --hard HEAD^
+找到那个append GPL的commit id是3628164...，于是就可以指定回到未来的某个版
+本	$ git reset --hard 3628164
+
+$ git reflog
+
+
+工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
+用git diff HEAD -- readme.txt命令可以查看工作区和版本库里面最新版本的区别
